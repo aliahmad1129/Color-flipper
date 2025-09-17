@@ -52,29 +52,19 @@ body {
 
 .f-c {
   position: absolute;
-  top: 3px;
-  left: 5px;
+  bottom: 3px;
+  left: 50%;
   font-family: 'Courier New', Courier, monospace;
   background-color: rgba(255, 255, 255, 0.3);
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  transform: translateX(-50%);
   margin: 5px 0;
   white-space: nowrap;
 }
 
-.s-c {
-  position: absolute;
-  bottom: 3px;
-  right: 5px;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: rgba(255, 255, 255, 0.3);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  margin: 5px 0;
-  white-space: nowrap;
-}
+
 
 .copy-btn {
   margin-left: 8px;

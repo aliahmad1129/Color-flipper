@@ -20,21 +20,13 @@ function randomColorDark () {
 const bodyElement = document.body;
 const btnElement = document.getElementById('btn');
 const textElement = document.querySelector('.text');
-const fColorElement = document.querySelector('.f-c');
-const sColorElement = document.querySelector('.s-c');
 const fColorLabel = document.querySelector('.f-c-label');
-const sColorLabel = document.querySelector('.s-c-label');
 
 function updateColor() {
-
-  let c1 = randomColor();
-  let c2 = randomColor();
-  let d = randomDegree();
-  bodyElement.style.background = `linear-gradient(${d}, ${c1} 10%, ${c2} 100%)`;
+  bodyElement.style.background = `linear-gradient(135deg, ${randomColor()} 10%, ${randomColor()} 100%)`;
   btnElement.style.background = `linear-gradient(${randomDegree()}, ${randomColor()} 10%, ${randomColor()} 100%)`;
   textElement.style.color = randomColorDark();
-  fColorLabel.textContent =  c1;
-  sColorLabel.textContent = c2;
+  fColorLabel.textContent =  bodyElement.style.background;
 }
 
 updateColor();
@@ -50,16 +42,17 @@ btnElement.addEventListener ('keydown', (e)=> {
 });
 
 // Copy button logic
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const label = btn.previousElementSibling;
-    if (label) {
-      navigator.clipboard.writeText(label.textContent);
-      btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Copy', 1000);
+const copyBtn = document.querySelector('.copy-btn');
+if (copyBtn) {
+  copyBtn.addEventListener('click', () => {
+    if (fColorLabel) {
+      navigator.clipboard.writeText(fColorLabel.textContent);
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => copyBtn.textContent = 'Copy', 1000);
     }
   });
-});
+}
+
 
 
 
